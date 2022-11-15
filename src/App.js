@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; 
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import * as yup from 'yup';
 
 import schema from './validation/formSchema';
@@ -74,18 +74,22 @@ function App() {
 
   return (
     <div className='App'>
-      <h1 className="title" >BloomTech Eats</h1>
-      <Route path='/'>
-        <HomePage />
+      <nav>
+        <h1 className='restaurant-header'>BloomTech Eats</h1>
+        <Link to='/'>Home</Link>
+        <Link to='/order'>Place Order</Link>
+      </nav>
+      <Route exact path='/'>
+          <HomePage />
       </Route>
-      
-      <Form 
-      values={formValues}
-      change={inputChange}
-      disabled={disabled}
-      submit={formSubmit}
-      />
-      <Confirmation />
+      <Route path='/order'> 
+        <Form 
+        values={formValues}
+        change={inputChange}
+        disabled={disabled}
+        submit={formSubmit}
+        />
+      </Route>   
     </div>
   );
   
