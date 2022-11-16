@@ -1,0 +1,23 @@
+img{
+  max-height: 60vh;
+  padding: 5%;
+}
+
+h2{
+  text-align: center;
+  color:darkgoldenrod;
+}
+.form{
+  display: flex;
+}
+
+#pizza-form{
+  display: flex;
+  flex-direction: column;
+  padding-top: 15%;
+  padding-right: 5%;
+}
+.errors{
+  text-align: center;
+  color: red;
+}
