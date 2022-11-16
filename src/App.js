@@ -56,12 +56,13 @@ function App() {
         instructions: formValues.instructions.trim(),
         toppings: ['mushrooms', 'pepperroni', 'sausage', 'jalapeños', 'spinach', 'olives', 'bacon'].filter(topping => !!formValues[topping])
       };
-      formSubmit(newOrder);
+      postNewOrder(newOrder);
     }
 
-  const formSubmit = newOrder => {
-  axios.post('https://reqres.in/api/orders', formValues)
+  const postNewOrder = newOrder => {
+  axios.post("https://reqres.in/api/orders", newOrder)
     .then(res => {
+      console.log(res.data);
       setOrders([res.data, ...orders])
     })
     .catch(err => console.error(err))
@@ -94,13 +95,13 @@ function App() {
         values={formValues}
         change={inputChange}
         disabled={disabled}
-        submit={formSubmit}
+        submit={postNewOrder}
         onSubmit={onSubmit}
         errors={formErrors}
         />
       </Route> 
       <Route exact path='/confirmation'>
-        <Confirmation />
+        <Confirmation /> 
       </Route>  
     </div>
   );
