@@ -79,7 +79,7 @@ const Form = (props) => {
             onChange={onChange}
             value={values.pizzaSauce}
             >
-              <option>--SAUCE--</option>
+              <option value=''>--SAUCE--</option>
               <option value='marinara'>Marinara Sauce</option>
               <option value='buffalo'>Buffalo Sauce</option>
               <option value='garlic'>White Garlic Sauce</option>
@@ -124,6 +124,7 @@ const Form = (props) => {
         disabled={disabled}
         onClick={confirmation}
         id='order-button'
+        name='orderButton'
         />
       </form>
       </div>
